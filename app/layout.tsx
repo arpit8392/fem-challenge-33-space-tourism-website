@@ -1,11 +1,17 @@
 import Header from '@/components/Header'
 import './globals.css'
-import { Bellefair, Barlow_Condensed } from 'next/font/google'
+import { Bellefair, Barlow_Condensed, Barlow } from 'next/font/google'
 
 const bellefair = Bellefair({
 	subsets: ['latin'],
 	weight: ['400'],
 	variable: '--font-bellefair',
+})
+
+const barlow = Barlow({
+	subsets: ['latin'],
+	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+	variable: '--font-barlow',
 })
 
 const barlow_condensed = Barlow_Condensed({
@@ -28,8 +34,11 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${barlow_condensed.variable} ${bellefair.variable} font-sans`}>
-				{children}
+				className={`${barlow_condensed.variable} ${bellefair.variable} ${barlow.variable} font-sans-serif`}>
+				<div className='min-h-screen bg-home-mobile bg-cover bg-center bg-no-repeat md:bg-home-tablet lg:bg-home-desktop'>
+					<Header />
+					{children}
+				</div>
 			</body>
 		</html>
 	)

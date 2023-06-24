@@ -11,7 +11,8 @@ module.exports = {
 				lavendarBlue: '#D0D6F9',
 			},
 			fontFamily: {
-				sans: ['var(--font-barlow-condensed)'],
+				sans: ['var(--font-barlow)'],
+				'sans-serif': ['var(--font-barlow-condensed)'],
 				serif: ['var(--font-bellefair)'],
 			},
 			backgroundImage: {
