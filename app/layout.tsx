@@ -1,4 +1,3 @@
-import Header from '@/components/Header'
 import './globals.css'
 import { Bellefair, Barlow_Condensed, Barlow } from 'next/font/google'
 
@@ -34,11 +33,8 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${barlow_condensed.variable} ${bellefair.variable} ${barlow.variable} font-sans-serif`}>
-				<div className='min-h-screen bg-home-mobile bg-cover bg-center bg-no-repeat md:bg-home-tablet lg:bg-home-desktop'>
-					<Header />
-					{children}
-				</div>
+				className={`${barlow_condensed.variable} ${bellefair.variable} ${barlow.variable} font-sans-serif scroll-smooth antialiased`}>
+				{children}
 			</body>
 		</html>
 	)
