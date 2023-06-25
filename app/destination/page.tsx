@@ -26,6 +26,7 @@ const Workspace = () => {
 						<Image
 							src={destinations[selectedIndex].images.webp}
 							alt={destinations[selectedIndex].name}
+							priority
 							fill
 						/>
 					</div>
