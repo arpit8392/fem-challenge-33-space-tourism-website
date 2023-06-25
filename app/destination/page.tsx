@@ -1,8 +1,15 @@
+'use client'
+
 import Header from '@/components/Header'
 import { destinations } from '@/data'
 import Image from 'next/image'
+import clsx from 'clsx'
+import { Tab } from '@headlessui/react'
+import { useState } from 'react'
 
-const DestinationPage = () => {
+const Workspace = () => {
+	const [selectedIndex, setSelectedIndex] = useState(0)
+
 	return (
 		<main className='min-h-screen bg-destination-mobile bg-cover bg-center bg-no-repeat md:bg-destination-tablet lg:bg-destination-desktop'>
 			<Header />
@@ -13,61 +20,77 @@ const DestinationPage = () => {
 					</span>
 					Pick Your Destination
 				</h1>
+
 				<article className='flex flex-col items-center justify-center gap-7 md:gap-8 lg:flex-row lg:items-start lg:gap-48'>
 					<div className='relative h-[170px] w-[170px] md:h-[300px] md:w-[300px] lg:h-[445px] lg:w-[445px]'>
 						<Image
-							src={'/assets/destination/image-moon.webp'}
+							// src={'/assets/destination/image-moon.webp'}
+							src={destinations[selectedIndex].images.webp}
 							alt='Moon'
 							fill
 						/>
 					</div>
 					<div className='flex flex-col gap-5 md:gap-8 lg:gap-9'>
-						<ul className='flex items-center justify-center gap-7 md:gap-9 lg:justify-start'>
-							{destinations.map((destination) => (
-								<li
-									key={destination.name}
-									className='text-sm uppercase tracking-[2.4px] text-lavendarBlue hover:text-white hover:underline hover:decoration-white hover:decoration-[3px] hover:underline-offset-[12px] md:text-base md:tracking-[2.7px]'>
-									{destination.name}
-								</li>
-							))}
-						</ul>
-
-						<div className='flex flex-col gap-8 text-center text-lavendarBlue lg:gap-14 lg:text-left'>
-							<div className='flex flex-col md:gap-2 lg:gap-3'>
-								<h2 className='font-serif text-5.5xl uppercase text-white md:text-7.5xl lg:text-8.25xl'>
-									Moon
-								</h2>
-								<p className='max-w-sm font-sans text-midBase md:max-w-xl md:text-base/7 lg:max-w-md lg:text-lg/8'>
-									See our planet as you’ve never seen it before. A perfect
-									relaxing trip away to help regain perspective and come back
-									refreshed. While you’re there, take in some history by
-									visiting the Luna 2 and Apollo 11 landing sites.
-								</p>
-							</div>
-							<hr className='h-[1px] w-full border-[#383B4B]' />
-							<div className='flex flex-col gap-8 md:flex-row md:justify-around lg:justify-start lg:gap-20'>
-								<div className='flex flex-col gap-3'>
-									<h3 className='text-sm uppercase tracking-[2.4px] '>
-										Avg. Distance
-									</h3>
-									<p className='font-serif text-2.5xl uppercase text-white'>
-										384,400 km
-									</p>
-								</div>
-								<div className='flex flex-col gap-3'>
-									<h3 className='text-sm uppercase tracking-widest'>
-										Est. travel time
-									</h3>
-									<p className='font-serif text-2.5xl uppercase text-white'>
-										3 days
-									</p>
-								</div>
-							</div>
-						</div>
+						<Tab.Group
+							defaultIndex={0}
+							selectedIndex={selectedIndex}
+							onChange={setSelectedIndex}>
+							<Tab.List className='flex items-center justify-center gap-7 md:gap-9 lg:justify-start'>
+								{destinations.map((destination) => (
+									<Tab
+										key={destination.name}
+										className={({ selected }) =>
+											clsx(
+												'cursor-pointer text-sm uppercase tracking-[2.4px] decoration-[3px] underline-offset-[12px] outline-none md:text-base md:tracking-[2.7px]',
+												selected
+													? 'text-white underline hover:decoration-white '
+													: 'text-lavendarBlue hover:underline hover:decoration-white/50'
+											)
+										}>
+										{destination.name}
+									</Tab>
+								))}
+							</Tab.List>
+							<Tab.Panels>
+								{destinations.map((destination, index) => (
+									<Tab.Panel
+										key={index}
+										className='flex flex-col gap-8 text-center text-lavendarBlue lg:gap-14 lg:text-left'>
+										<div className='flex flex-col md:gap-2 lg:gap-3'>
+											<h2 className='font-serif text-5.5xl uppercase text-white md:text-7.5xl lg:text-8.25xl'>
+												{destination.name}
+											</h2>
+											<p className='max-w-sm font-sans text-midBase md:max-w-xl md:text-base/7 lg:max-w-md lg:text-lg/8'>
+												{destination.description}
+											</p>
+										</div>
+										<hr className='h-[1px] w-full border-[#383B4B]' />
+										<div className='flex flex-col gap-8 md:flex-row md:justify-around lg:justify-start lg:gap-20'>
+											<div className='flex flex-col gap-3'>
+												<h3 className='text-sm uppercase tracking-[2.4px] '>
+													Avg. Distance
+												</h3>
+												<p className='font-serif text-2.5xl uppercase text-white'>
+													{destination.distance}
+												</p>
+											</div>
+											<div className='flex flex-col gap-3'>
+												<h3 className='text-sm uppercase tracking-widest'>
+													Est. travel time
+												</h3>
+												<p className='font-serif text-2.5xl uppercase text-white'>
+													{destination.travel}
+												</p>
+											</div>
+										</div>
+									</Tab.Panel>
+								))}
+							</Tab.Panels>
+						</Tab.Group>
 					</div>
 				</article>
 			</section>
 		</main>
 	)
 }
-export default DestinationPage
+export default Workspace
