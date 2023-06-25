@@ -24,9 +24,8 @@ const Workspace = () => {
 				<article className='flex flex-col items-center justify-center gap-7 md:gap-8 lg:flex-row lg:items-start lg:gap-48'>
 					<div className='relative h-[170px] w-[170px] md:h-[300px] md:w-[300px] lg:h-[445px] lg:w-[445px]'>
 						<Image
-							// src={'/assets/destination/image-moon.webp'}
 							src={destinations[selectedIndex].images.webp}
-							alt='Moon'
+							alt={destinations[selectedIndex].name}
 							fill
 						/>
 					</div>
