@@ -2,7 +2,6 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 
 // TODO: Add Hover/Active State on Tabs and Main Button
-// TODO: Review the Text Sizes and Letter Spacing to see if this can be componentised to avoid using fixed px values
 
 export default function Home() {
 	return (
