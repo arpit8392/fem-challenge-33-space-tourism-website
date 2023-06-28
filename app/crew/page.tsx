@@ -15,7 +15,7 @@ const CrewPage = () => {
 	return (
 		<main className='min-h-screen bg-crew-mobile bg-cover bg-center bg-no-repeat md:bg-crew-tablet lg:bg-crew-desktop'>
 			<Header />
-			<section className='grid grid-cols-1 justify-items-center gap-8 p-6 pb-24 md:gap-14 md:p-10 md:pb-0 lg:grid-cols-4 lg:grid-rows-3 lg:items-start lg:justify-items-start lg:pb-0 lg:pl-44 lg:pt-20'>
+			<section className='grid grid-cols-1 justify-items-center gap-8 p-6 md:gap-14 md:p-10 md:pb-0 lg:grid-cols-4 lg:grid-rows-3 lg:items-start lg:justify-items-start lg:pb-0 lg:pl-44 lg:pt-20'>
 				{/* Heading */}
 
 				<h1 className='uppercase tracking-[2.7px] text-white md:justify-self-start md:text-xl md:tracking-[3.375px] lg:col-span-2 lg:col-start-1 lg:text-2.5xl lg:tracking-[4.725px]'>
