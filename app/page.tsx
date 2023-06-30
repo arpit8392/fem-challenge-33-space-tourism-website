@@ -1,8 +1,6 @@
 import Header from '@/components/Header'
 import Link from 'next/link'
 
-// TODO: Add Hover/Active State on Tabs and Main Button
-
 export default function Home() {
 	return (
 		<main className='min-h-screen bg-home-mobile bg-cover bg-center bg-no-repeat md:bg-home-tablet lg:bg-home-desktop'>
@@ -25,7 +23,7 @@ export default function Home() {
 
 				<Link
 					href={'/destination'}
-					className='flex h-[150px] w-[150px] items-center justify-center rounded-full bg-white font-serif text-xl uppercase tracking-[1.25px] text-midnightBlue md:h-[242px] md:w-[242px] md:text-3.5xl md:tracking-[2px] lg:h-[274px] lg:w-[274px]'>
+					className='flex h-[150px] w-[150px] items-center justify-center rounded-full bg-white font-serif text-xl uppercase tracking-[1.25px] text-midnightBlue hover:animate-bounce md:h-[242px] md:w-[242px] md:text-3.5xl md:tracking-[2px] lg:h-[274px] lg:w-[274px]'>
 					Explore
 				</Link>
 			</section>

@@ -7,9 +7,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { navigations } from '@/data'
 import Logo from '@/public/assets/shared/logo.svg'
+import clsx from 'clsx'
+import { usePathname } from 'next/navigation'
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false)
+	const pathname = usePathname()
+	console.log(pathname)
 
 	return (
 		<header>
@@ -28,9 +32,16 @@ const Header = () => {
 						<Bars3Icon className='h-5 w-6 text-white' />
 					</button>
 				</div>
-				<ul className='hidden items-center gap-9 bg-white bg-opacity-5 px-12 py-10 text-white backdrop-blur-[82px] md:flex lg:pl-32 lg:pr-40'>
+				<ul className='hidden items-center gap-9 bg-white bg-opacity-5 px-12  text-white backdrop-blur-[82px] md:flex lg:pl-32 lg:pr-40'>
 					{navigations.map((item) => (
-						<li key={item.name}>
+						<li
+							key={item.name}
+							className={clsx(
+								'border-b-[3px] border-white py-10 duration-200',
+								pathname === item.href
+									? 'border-opacity-100'
+									: 'border-opacity-0 hover:border-white/50'
+							)}>
 							<Link
 								href={item.href}
 								className='text-sm uppercase tracking-[2.4px] lg:text-base'>

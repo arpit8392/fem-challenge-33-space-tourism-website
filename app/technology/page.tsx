@@ -42,7 +42,7 @@ const Technology = () => {
 				</div>
 
 				{/* Slider + Information Panel */}
-				<div className='flex flex-col items-center gap-8 md:gap-10 lg:col-span-2 lg:col-start-1 lg:row-span-2 lg:row-start-2 lg:items-start lg:gap-28 lg:flex-row'>
+				<div className='flex flex-col items-center gap-8 md:gap-10 lg:col-span-2 lg:col-start-1 lg:row-span-2 lg:row-start-2 lg:items-start  lg:flex-row lg:items-center'>
 					{/* Slider Buttons */}
 					<ul className='flex gap-4 lg:flex-col lg:gap-8'>
 						{technology.map((item, currentIndex) => (
