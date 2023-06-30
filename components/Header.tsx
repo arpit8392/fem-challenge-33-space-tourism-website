@@ -13,7 +13,6 @@ import { usePathname } from 'next/navigation'
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const pathname = usePathname()
-	console.log(pathname)
 
 	return (
 		<header>
